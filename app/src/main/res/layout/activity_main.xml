@@ -3,17 +3,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="94dp">
 
         <TextView
             android:id="@+id/TextView"
-            android:layout_width="match_parent"
-            android:layout_height="98dp"
+            android:layout_width="182dp"
+            android:layout_height="match_parent"
             android:textSize="50dp"
-            />
+            android:text="abc" />
+
+
+        <Button
+            android:id="@+id/Delete"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:onClick="delete"
+            android:text="Delete" />
+
+
+        <Button
+            android:id="@+id/Enter"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:onClick="enter"
+            android:text="Enter" />
 
     </LinearLayout>
 
@@ -23,19 +39,25 @@
         android:orientation="horizontal">
 
 
-        <Button
+        <ToggleButton
             android:id="@+id/button1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/점자" />
+            android:background="@drawable/clicked_button"
+            android:onClick="buttonClicked1"
+            android:textOn=""
+            android:textOff=""/>
 
-        <Button
+        <ToggleButton
             android:id="@+id/button2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/점자" />
+            android:background="@drawable/clicked_button"
+            android:onClick="buttonClicked2"
+            android:textOn=""
+            android:textOff="" />
 
     </LinearLayout>
 
@@ -45,19 +67,25 @@
         android:orientation="horizontal">
 
 
-        <Button
+        <ToggleButton
             android:id="@+id/button3"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/점자" />
+            android:background="@drawable/clicked_button"
+            android:onClick="buttonClicked3"
+            android:textOn=""
+            android:textOff=""/>
 
-        <Button
+        <ToggleButton
             android:id="@+id/button4"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/점자" />
+            android:background="@drawable/clicked_button"
+            android:onClick="buttonClicked4"
+            android:textOn=""
+            android:textOff=""/>
 
     </LinearLayout>
 
@@ -67,19 +95,25 @@
         android:orientation="horizontal">
 
 
-        <Button
+        <ToggleButton
             android:id="@+id/button5"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/점자" />
+            android:background="@drawable/clicked_button"
+            android:onClick="buttonClicked5"
+            android:textOn=""
+            android:textOff=""/>
 
-        <Button
+        <ToggleButton
             android:id="@+id/button6"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/점자" />
+            android:background="@drawable/clicked_button"
+            android:onClick="buttonClicked6"
+            android:textOn=""
+            android:textOff=""/>
 
     </LinearLayout>
     <LinearLayout
@@ -88,26 +122,35 @@
         android:orientation="horizontal">
 
 
-        <Button
+        <ToggleButton
             android:id="@+id/Korean"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="한글" />
+            android:onClick="korean"
+            android:textOn="한글"
+            android:textOff="한글"
+            android:checked="true"/>
 
-        <Button
+        <ToggleButton
             android:id="@+id/English"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="영어" />
+            android:onClick="english"
+            android:textOn="영어"
+            android:textOff="영어"
+            android:checked="false"/>
 
-        <Button
+        <ToggleButton
             android:id="@+id/Number"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="숫자" />
+            android:onClick="number"
+            android:textOn="숫자"
+            android:textOff="숫자"
+            android:checked="false"/>
 
     </LinearLayout>
 </LinearLayout>
