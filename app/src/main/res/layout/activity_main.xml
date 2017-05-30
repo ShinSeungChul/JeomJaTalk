@@ -12,8 +12,7 @@
             android:id="@+id/TextView"
             android:layout_width="182dp"
             android:layout_height="match_parent"
-            android:textSize="50dp"
-            android:text="abc" />
+            android:textSize="50dp" />
 
 
         <Button
