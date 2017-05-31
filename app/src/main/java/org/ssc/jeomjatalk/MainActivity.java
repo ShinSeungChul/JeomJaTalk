@@ -6,10 +6,25 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
+import static org.ssc.jeomjatalk.first.ㅇ;
+
+enum first {ㄱ, ㄲ, ㄴ, ㄷ, ㄸ, ㄹ, ㅁ, ㅂ, ㅃ, ㅅ, ㅆ, ㅇ, ㅈ, ㅉ, ㅊ, ㅋ, ㅌ, ㅍ, ㅎ}
+enum middle {ㅏ, ㅐ, ㅑ, ㅒ, ㅓ, ㅔ, ㅕ, ㅖ, ㅗ, ㅘ, ㅙ, ㅚ, ㅛ, ㅜ, ㅝ, ㅞ, ㅟ, ㅠ, ㅡ, ㅢ, ㅣ}
+
 public class MainActivity extends AppCompatActivity {
 
+    int num = 0xac00;
+    String unicode;
+    String str = "\\u";
+    int firstNum = 0x24c;
+    int middleNum = 0x1c;
     boolean cl = false;
-    boolean timerOn = false;
+    boolean fortis = false;
+    boolean firstOn = false;
+    boolean O = false;
+    boolean ho = false;
+    boolean np = false;
+    boolean nl = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +79,11 @@ public class MainActivity extends AppCompatActivity {
         return tb.isChecked();
     }
 
-    public void enter(){
+    public void enter(View v){
+
+        String unicode;
+        str = "\\u";
+        unicode = "";
 
         ToggleButton tb1, tb2, tb3, tb4, tb5, tb6;
         ToggleButton korean, english, number;
@@ -81,7 +100,382 @@ public class MainActivity extends AppCompatActivity {
         number = (ToggleButton)findViewById(R.id.Number);
 
         if(korean.isChecked()){
-
+            if((!on1())&&(!on2())&&(!on3())&&(!on4())&&(!on5())&&(!on6())) {
+            } else if((!on1())&&(on2())&&(!on3())&&(!on4())&&(!on5())&&(!on6())){
+                if (fortis) {
+                    deleteText();
+                    addText("ㄲ");
+                    num = 0xac00;
+                    num += firstNum*first.ㄲ.ordinal();
+                }else{
+                    addText("ㄱ");
+                    num = 0xac00;
+                    num += firstNum*first.ㄱ.ordinal();
+                    fortis = false;
+                }
+                firstOn = true;
+            } else if((on1())&&(on2())&&(!on3())&&(!on4())&&(!on5())&&(!on6())){
+                addText("ㄴ");
+                num = 0xac00;
+                num += firstNum*first.ㄴ.ordinal();
+                firstOn = true;
+            } else if((!on1())&&(on2())&&(on3())&&(!on4())&&(!on5())&&(!on6())){
+                if (fortis) {
+                    deleteText();
+                    addText("ㄸ");
+                    num = 0xac00;
+                    num += firstNum*first.ㄸ.ordinal();
+                }else{
+                    addText("ㄷ");
+                    num = 0xac00;
+                    num += firstNum*first.ㄷ.ordinal();
+                    fortis = false;
+                }
+                firstOn = true;
+            } else if((!on1())&&(!on2())&&(!on3())&&(on4())&&(!on5())&&(!on6())){
+                addText("ㄹ");
+                num = 0xac00;
+                num += firstNum*first.ㄹ.ordinal();
+                firstOn = true;
+            } else if((on1())&&(!on2())&&(!on3())&&(on4())&&(!on5())&&(!on6())){
+                addText("ㅁ");
+                num = 0xac00;
+                num += firstNum*first.ㅁ.ordinal();
+                firstOn = true;
+            } else if((!on1())&&(on2())&&(!on3())&&(on4())&&(!on5())&&(!on6())){
+                if (fortis) {
+                    deleteText();
+                    addText("ㅃ");
+                    num = 0xac00;
+                    num += firstNum*first.ㅃ.ordinal();
+                    fortis = false;
+                }else{
+                    addText("ㅂ");
+                    num = 0xac00;
+                    num += firstNum*first.ㅂ.ordinal();
+                }
+                firstOn = true;
+            } else if((!on1())&&(!on2())&&(!on3())&&(!on4())&&(!on5())&&(on6())){
+                if (fortis) {
+                    deleteText();
+                    addText("ㅆ");
+                    num = 0xac00;
+                    num += firstNum*first.ㅆ.ordinal();
+                    fortis = false;
+                }else{
+                    addText("ㅅ");
+                    num = 0xac00;
+                    num += firstNum*first.ㅅ.ordinal();
+                    fortis = true;
+                }
+                firstOn = true;
+            } else if((!on1())&&(on2())&&(!on3())&&(!on4())&&(!on5())&&(on6())){
+                if (fortis) {
+                    deleteText();
+                    addText("ㅉ");
+                    num = 0xac00;
+                    num += firstNum*first.ㅉ.ordinal();
+                    fortis = false;
+                }else{
+                    addText("ㅈ");
+                    num = 0xac00;
+                    num += firstNum*first.ㅈ.ordinal();
+                }
+                firstOn = true;
+            } else if((!on1())&&(!on2())&&(!on3())&&(on4())&&(!on5())&&(on6())){
+                addText("ㅊ");
+                num = 0xac00;
+                num += firstNum*first.ㅊ.ordinal();
+                firstOn = true;
+            } else if((on1())&&(on2())&&(on3())&&(!on4())&&(!on5())&&(!on6())){
+                addText("ㅋ");
+                num = 0xac00;
+                num += firstNum*first.ㅋ.ordinal();
+                firstOn = true;
+            } else if((on1())&&(!on2())&&(on3())&&(on4())&&(!on5())&&(!on6())){
+                addText("ㅌ");
+                num = 0xac00;
+                num += firstNum*first.ㅌ.ordinal();
+                firstOn = true;
+            } else if((on1())&&(on2())&&(!on3())&&(on4())&&(!on5())&&(!on6())){
+                addText("ㅍ");
+                num = 0xac00;
+                num += firstNum*first.ㅍ.ordinal();
+                firstOn = true;
+            } else if((!on1())&&(on2())&&(on3())&&(on4())&&(!on5())&&(!on6())){
+                addText("ㅎ");
+                num = 0xac00;
+                num += firstNum*first.ㅎ.ordinal();
+                firstOn = true;
+            } else if (firstOn){
+                if((on1())&&(!on2())&&(on3())&&(!on4())&&(!on5())&&(on6())){
+                    deleteText();
+                    fortis = false;
+                    num += middleNum*middle.ㅏ.ordinal();
+                    unicode = str + Integer.toHexString(num);
+                    addText(decode(unicode));
+                    firstOn=false;
+                } else if((!on1())&&(on2())&&(!on3())&&(on4())&&(on5())&&(!on6())){
+                    deleteText();
+                    fortis = false;
+                    num += middleNum*middle.ㅑ.ordinal();
+                    O = true;
+                    unicode = str + Integer.toHexString(num);
+                    addText(decode(unicode));
+                    firstOn=false;
+                } else if((!on1())&&(on2())&&(on3())&&(!on4())&&(on5())&&(!on6())){
+                    deleteText();
+                    fortis = false;
+                    num += middleNum*middle.ㅓ.ordinal();
+                    unicode = str + Integer.toHexString(num);
+                    addText(decode(unicode));
+                    firstOn=false;
+                } else if((on1())&&(!on2())&&(!on3())&&(on4())&&(!on5())&&(on6())){
+                    deleteText();
+                    fortis = false;
+                    num += middleNum*middle.ㅕ.ordinal();
+                    unicode = str + Integer.toHexString(num);
+                    addText(decode(unicode));
+                    firstOn=false;
+                } else if((on1())&&(!on2())&&(!on3())&&(!on4())&&(on5())&&(on6())){
+                    deleteText();
+                    fortis = false;
+                    num += middleNum*middle.ㅗ.ordinal();
+                    unicode = str + Integer.toHexString(num);
+                    addText(decode(unicode));
+                    firstOn=false;
+                } else if((!on1())&&(on2())&&(!on3())&&(!on4())&&(on5())&&(on6())){
+                    deleteText();
+                    fortis = false;
+                    num += middleNum*middle.ㅛ.ordinal();
+                    unicode = str + Integer.toHexString(num);
+                    addText(decode(unicode));
+                    firstOn=false;
+                } else if((on1())&&(on2())&&(!on3())&&(!on4())&&(on5())&&(!on6())){
+                    deleteText();
+                    fortis = false;
+                    num += middleNum*middle.ㅜ.ordinal();
+                    nl = true;
+                    unicode = str + Integer.toHexString(num);
+                    addText(decode(unicode));
+                    firstOn=false;
+                } else if((on1())&&(on2())&&(!on3())&&(!on4())&&(!on5())&&(on6())){
+                    deleteText();
+                    fortis = false;
+                    num += middleNum*middle.ㅠ.ordinal();
+                    unicode = str + Integer.toHexString(num);
+                    addText(decode(unicode));
+                    firstOn=false;
+                } else if((!on1())&&(on2())&&(on3())&&(!on4())&&(!on5())&&(on6())){
+                    deleteText();
+                    fortis = false;
+                    num += middleNum*middle.ㅡ.ordinal();
+                    unicode = str + Integer.toHexString(num);
+                    addText(decode(unicode));
+                    firstOn=false;
+                } else if((on1())&&(!on2())&&(!on3())&&(on4())&&(on5())&&(!on6())){
+                    deleteText();
+                    fortis = false;
+                    num += middleNum*middle.ㅣ.ordinal();
+                    unicode = str + Integer.toHexString(num);
+                    addText(decode(unicode));
+                    firstOn=false;
+                } else if((on1())&&(!on2())&&(on3())&&(on4())&&(on5())&&(!on6())){
+                    deleteText();
+                    fortis = false;
+                    num += middleNum * middle.ㅐ.ordinal();
+                    unicode = str + Integer.toHexString(num);
+                    addText(decode(unicode));
+                    firstOn=false;
+                } else if((on1())&&(on2())&&(!on3())&&(on4())&&(on5())&&(!on6())){
+                    deleteText();
+                    fortis = false;
+                    num += middleNum*middle.ㅔ.ordinal();
+                    unicode = str + Integer.toHexString(num);
+                    addText(decode(unicode));
+                    firstOn=false;
+                } else if((!on1())&&(on2())&&(!on3())&&(!on4())&&(on5())&&(!on6())){
+                    deleteText();
+                    fortis = false;
+                    num += middleNum*middle.ㅖ.ordinal();
+                    unicode = str + Integer.toHexString(num);
+                    addText(decode(unicode));
+                    firstOn=false;
+                } else if((on1())&&(!on2())&&(on3())&&(!on4())&&(on5())&&(on6())){
+                    deleteText();
+                    fortis = false;
+                    num += middleNum*middle.ㅘ.ordinal();
+                    ho = true;
+                    unicode = str + Integer.toHexString(num);
+                    addText(decode(unicode));
+                    firstOn=false;
+                } else if((on1())&&(on2())&&(!on3())&&(on4())&&(on5())&&(on6())){
+                    deleteText();
+                    fortis = false;
+                    num += middleNum*middle.ㅚ.ordinal();
+                    unicode = str + Integer.toHexString(num);
+                    addText(decode(unicode));
+                    firstOn=false;
+                } else if((on1())&&(on2())&&(on3())&&(!on4())&&(on5())&&(!on6())){
+                    deleteText();
+                    fortis = false;
+                    num += middleNum*middle.ㅝ.ordinal();
+                    np = true;
+                    unicode = str + Integer.toHexString(num);
+                    addText(decode(unicode));
+                    firstOn=false;
+                } else if((!on1())&&(on2())&&(on3())&&(on4())&&(!on5())&&(on6())){
+                    deleteText();
+                    fortis = false;
+                    num += middleNum*middle.ㅢ.ordinal();
+                    unicode = str + Integer.toHexString(num);
+                    addText(decode(unicode));
+                    firstOn=false;
+                }
+            } else if (!firstOn){
+                if((on1())&&(!on2())&&(on3())&&(!on4())&&(!on5())&&(on6())){
+                    num = 0xac00;
+                    num += firstNum* ㅇ.ordinal();
+                    num += middleNum*middle.ㅏ.ordinal();
+                    O = ho = np = nl = false;
+                    unicode = str + Integer.toHexString(num);
+                    addText(decode(unicode));
+                } else if((!on1())&&(on2())&&(!on3())&&(on4())&&(on5())&&(!on6())){
+                    num = 0xac00;
+                    num += firstNum* ㅇ.ordinal();
+                    num += middleNum*middle.ㅑ.ordinal();
+                    O = ho = np = nl = false;
+                    O = true;
+                    unicode = str + Integer.toHexString(num);
+                    addText(decode(unicode));
+                } else if((!on1())&&(on2())&&(on3())&&(!on4())&&(on5())&&(!on6())){
+                    num = 0xac00;
+                    num += firstNum* ㅇ.ordinal();
+                    num += middleNum*middle.ㅓ.ordinal();
+                    O = ho = np = nl = false;
+                    unicode = str + Integer.toHexString(num);
+                    addText(decode(unicode));
+                } else if((on1())&&(!on2())&&(!on3())&&(on4())&&(!on5())&&(on6())){
+                    num = 0xac00;
+                    num += firstNum* ㅇ.ordinal();
+                    num += middleNum*middle.ㅕ.ordinal();
+                    O = ho = np = nl = false;
+                    unicode = str + Integer.toHexString(num);
+                    addText(decode(unicode));
+                } else if((on1())&&(!on2())&&(!on3())&&(!on4())&&(on5())&&(on6())){
+                    num = 0xac00;
+                    num += firstNum* ㅇ.ordinal();
+                    num += middleNum*middle.ㅗ.ordinal();
+                    O = ho = np = nl = false;
+                    unicode = str + Integer.toHexString(num);
+                    addText(decode(unicode));
+                } else if((!on1())&&(on2())&&(!on3())&&(!on4())&&(on5())&&(on6())){
+                    num = 0xac00;
+                    num += firstNum* ㅇ.ordinal();
+                    num += middleNum*middle.ㅛ.ordinal();
+                    O = ho = np = nl = false;
+                    unicode = str + Integer.toHexString(num);
+                    addText(decode(unicode));
+                } else if((on1())&&(on2())&&(!on3())&&(!on4())&&(on5())&&(!on6())){
+                    num = 0xac00;
+                    num += firstNum* ㅇ.ordinal();
+                    num += middleNum*middle.ㅜ.ordinal();
+                    O = ho = np = nl = false;
+                    nl = true;
+                    unicode = str + Integer.toHexString(num);
+                    addText(decode(unicode));
+                } else if((on1())&&(on2())&&(!on3())&&(!on4())&&(!on5())&&(on6())){
+                    num = 0xac00;
+                    num += firstNum* ㅇ.ordinal();
+                    num += middleNum*middle.ㅠ.ordinal();
+                    O = ho = np = nl = false;
+                    unicode = str + Integer.toHexString(num);
+                    addText(decode(unicode));
+                } else if((!on1())&&(on2())&&(on3())&&(!on4())&&(!on5())&&(on6())){
+                    num = 0xac00;
+                    num += firstNum* ㅇ.ordinal();
+                    num += middleNum*middle.ㅡ.ordinal();
+                    O = ho = np = nl = false;
+                    unicode = str + Integer.toHexString(num);
+                    addText(decode(unicode));
+                } else if((on1())&&(!on2())&&(!on3())&&(on4())&&(on5())&&(!on6())){
+                    num = 0xac00;
+                    num += firstNum* ㅇ.ordinal();
+                    num += middleNum*middle.ㅣ.ordinal();
+                    O = ho = np = nl = false;
+                    unicode = str + Integer.toHexString(num);
+                    addText(decode(unicode));
+                } else if((on1())&&(!on2())&&(on3())&&(on4())&&(on5())&&(!on6())){
+                    if(O) {
+                        deleteText();
+                        num -= middleNum * middle.ㅑ.ordinal();
+                        num += middleNum * middle.ㅒ.ordinal();
+                    } else if(ho) {
+                        deleteText();
+                        num -= middleNum * middle.ㅘ.ordinal();
+                        num += middleNum * middle.ㅙ.ordinal();
+                    } else if(np) {
+                        deleteText();
+                        num -= middleNum * middle.ㅝ.ordinal();
+                        num += middleNum * middle.ㅞ.ordinal();
+                    } else if(nl) {
+                        deleteText();
+                        num -= middleNum * middle.ㅜ.ordinal();
+                        num += middleNum * middle.ㅟ.ordinal();
+                    } else {
+                        num = 0xac00;
+                        num += firstNum* ㅇ.ordinal();
+                        num += middleNum * middle.ㅐ.ordinal();
+                    }
+                    O = ho = np = nl = false;
+                    unicode = str + Integer.toHexString(num);
+                    addText(decode(unicode));
+                } else if((on1())&&(on2())&&(!on3())&&(on4())&&(on5())&&(!on6())){
+                    num = 0xac00;
+                    num += firstNum* ㅇ.ordinal();
+                    num += middleNum*middle.ㅔ.ordinal();
+                    O = ho = np = nl = false;
+                    unicode = str + Integer.toHexString(num);
+                    addText(decode(unicode));
+                } else if((!on1())&&(on2())&&(!on3())&&(!on4())&&(on5())&&(!on6())){
+                    num = 0xac00;
+                    num += firstNum* ㅇ.ordinal();
+                    num += middleNum*middle.ㅖ.ordinal();
+                    O = ho = np = nl = false;
+                    unicode = str + Integer.toHexString(num);
+                    addText(decode(unicode));
+                } else if((on1())&&(!on2())&&(on3())&&(!on4())&&(on5())&&(on6())){
+                    num = 0xac00;
+                    num += firstNum* ㅇ.ordinal();
+                    num += middleNum*middle.ㅘ.ordinal();
+                    O = ho = np = nl = false;
+                    ho = true;
+                    unicode = str + Integer.toHexString(num);
+                    addText(decode(unicode));
+                } else if((on1())&&(on2())&&(!on3())&&(on4())&&(on5())&&(on6())){
+                    num = 0xac00;
+                    num += firstNum* ㅇ.ordinal();
+                    num += middleNum*middle.ㅚ.ordinal();
+                    O = ho = np = nl = false;
+                    unicode = str + Integer.toHexString(num);
+                    addText(decode(unicode));
+                } else if((on1())&&(on2())&&(on3())&&(!on4())&&(on5())&&(!on6())){
+                    num = 0xac00;
+                    num += firstNum* ㅇ.ordinal();
+                    num += middleNum*middle.ㅝ.ordinal();
+                    O = ho = np = nl = false;
+                    np = true;
+                    unicode = str + Integer.toHexString(num);
+                    addText(decode(unicode));
+                } else if((!on1())&&(on2())&&(on3())&&(on4())&&(!on5())&&(on6())){
+                    num = 0xac00;
+                    num += firstNum* ㅇ.ordinal();
+                    num += middleNum*middle.ㅢ.ordinal();
+                    O = ho = np = nl = false;
+                    unicode = str + Integer.toHexString(num);
+                    addText(decode(unicode));
+                }
+            }
         }else if(english.isChecked()) {
             if((!on1())&&(!on2())&&(!on3())&&(!on4())&&(!on5())&&(on6())){
                 cl = true;
@@ -237,6 +631,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void delete(View v){
 
+        deleteText();
+
+    }
+
+    public void deleteText(){
+
         TextView tv = (TextView)findViewById(R.id.TextView);
 
         String str = tv.getText().toString();
@@ -248,6 +648,7 @@ public class MainActivity extends AppCompatActivity {
             str1 = str1 + ch[i];
         }
         tv.setText(str1);
+
     }
 
     public void korean(View v){
@@ -288,5 +689,19 @@ public class MainActivity extends AppCompatActivity {
         TextView tv = (TextView)findViewById(R.id.TextView);
 
         tv.setText(tv.getText() + c);
+    }
+
+    public static String decode(String unicode) {
+
+        StringBuffer str = new StringBuffer();
+        char ch = 0;
+        for( int i= unicode.indexOf("\\u"); i > -1; i = unicode.indexOf("\\u") ){
+            ch = (char)Integer.parseInt( unicode.substring( i + 2, i + 6 ) ,16);
+            str.append( unicode.substring(0, i) );
+            str.append( String.valueOf(ch) );
+            unicode = unicode.substring(i + 6);
+        }
+        str.append( unicode );
+        return str.toString();
     }
 }

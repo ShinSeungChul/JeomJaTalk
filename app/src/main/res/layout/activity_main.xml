@@ -12,7 +12,8 @@
             android:id="@+id/TextView"
             android:layout_width="182dp"
             android:layout_height="match_parent"
-            android:textSize="50dp" />
+            android:textSize="20dp"
+            android:text = "\uac00"/>
 
 
         <Button
