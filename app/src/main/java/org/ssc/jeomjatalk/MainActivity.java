@@ -1,6 +1,11 @@
 package org.ssc.jeomjatalk;
 
+import android.graphics.Color;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
@@ -16,7 +21,6 @@ enum last {공백, ㄱ, ㄲ, ㄳ, ㄴ, ㄵ, ㄶ, ㄷ, ㄹ, ㄺ, ㄻ, ㄼ, ㄽ, �
 public class MainActivity extends AppCompatActivity {
 
     int num = 0xac00;
-    String unicode;
     String str = "\\u";
     int firstNum = 0x24c;
     int middleNum = 0x1c;
@@ -32,31 +36,120 @@ public class MainActivity extends AppCompatActivity {
     boolean s = false;
     boolean f = false;
     boolean q = false;
+    int value=0;
+    TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        tv = (TextView)findViewById(R.id.TextView);
     }
 
+    Handler handler = new Handler(){
+        public void handleMessage(Message msg){
+            value++;
+            handler.sendEmptyMessageDelayed(0,1);
+            if(value==500){
+                enter();
+                value=0;
+                handler.removeMessages(0);
+            }
+        }
+    };
+
+
     public void buttonClicked1(View v){
+        if(value != 0)
+            value=0;
+        else
+            handler.sendEmptyMessage(0);
+        SoundPool sound = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
+        final int soundId = sound.load(this, R.raw.click1, 1);
+        sound.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
+            @Override
+            public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
+                soundPool.play(soundId, 1.0F, 1.0F, 1, 0, 2);
+            }
+        });
     }
 
     public void buttonClicked2(View v){
+        if(value != 0)
+            value=0;
+        else
+            handler.sendEmptyMessage(0);
+        SoundPool sound = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
+        final int soundId = sound.load(this, R.raw.click2, 1);
+        sound.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
+            @Override
+            public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
+                soundPool.play(soundId, 1.0F, 1.0F, 1, 0, 2);
+            }
+        });
     }
 
     public void buttonClicked3(View v){
+        if(value != 0)
+            value=0;
+        else
+            handler.sendEmptyMessage(0);
+        SoundPool sound = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
+        final int soundId = sound.load(this, R.raw.click3, 1);
+        sound.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
+            @Override
+            public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
+                soundPool.play(soundId, 1.0F, 1.0F, 1, 0, 2);
+            }
+        });
     }
 
     public void buttonClicked4(View v){
+        if(value != 0)
+            value=0;
+        else
+            handler.sendEmptyMessage(0);
+        SoundPool sound = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
+        final int soundId = sound.load(this, R.raw.click4, 1);
+        sound.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
+            @Override
+            public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
+                soundPool.play(soundId, 1.0F, 1.0F, 1, 0, 2);
+            }
+        });
     }
 
     public void buttonClicked5(View v){
+        if(value != 0)
+            value=0;
+        else
+            handler.sendEmptyMessage(0);
+        SoundPool sound = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
+        final int soundId = sound.load(this, R.raw.click5, 1);
+        sound.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
+            @Override
+            public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
+                soundPool.play(soundId, 1.0F, 1.0F, 1, 0, 2);
+            }
+        });
     }
 
     public void buttonClicked6(View v){
+        if(value != 0)
+            value=0;
+        else
+            handler.sendEmptyMessage(0);
+        SoundPool sound = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
+        final int soundId = sound.load(this, R.raw.click6, 1);
+        sound.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
+            @Override
+            public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
+                soundPool.play(soundId, 1.0F, 1.0F, 1, 0, 2);
+            }
+        });
     }
+
 
     public boolean on1(){
         ToggleButton tb = (ToggleButton)findViewById(R.id.button1);
@@ -86,11 +179,11 @@ public class MainActivity extends AppCompatActivity {
         return tb.isChecked();
     }
 
-    public void enter(View v) {
+
+    public void enter() {
 
         String unicode;
         str = "\\u";
-        unicode = "";
 
         ToggleButton tb1, tb2, tb3, tb4, tb5, tb6;
         ToggleButton korean, english, number;
@@ -108,12 +201,18 @@ public class MainActivity extends AppCompatActivity {
 
         if (korean.isChecked()) {
             if ((!on1()) && (!on2()) && (!on3()) && (!on4()) && (!on5()) && (!on6())) {
+                addText("");
+                fortis = false;
+                firstOn = false;
+                lastOn = false;
+                q = r = s = f = false;
             } else if ((!on1()) && (on2()) && (!on3()) && (!on4()) && (!on5()) && (!on6())) {
                 if (fortis) {
                     deleteText();
                     addText("ㄲ");
                     num = 0xac00;
                     num += firstNum * first.ㄲ.ordinal();
+                    fortis = false;
                 } else {
                     addText("ㄱ");
                     num = 0xac00;
@@ -136,6 +235,7 @@ public class MainActivity extends AppCompatActivity {
                     addText("ㄸ");
                     num = 0xac00;
                     num += firstNum * first.ㄸ.ordinal();
+                    fortis = false;
                 } else {
                     addText("ㄷ");
                     num = 0xac00;
@@ -170,6 +270,7 @@ public class MainActivity extends AppCompatActivity {
                     addText("ㅂ");
                     num = 0xac00;
                     num += firstNum * first.ㅂ.ordinal();
+                    fortis = false;
                 }
                 firstOn = true;
                 lastOn = false;
@@ -201,6 +302,7 @@ public class MainActivity extends AppCompatActivity {
                     addText("ㅈ");
                     num = 0xac00;
                     num += firstNum * first.ㅈ.ordinal();
+                    fortis = false;
                 }
                 firstOn = true;
                 lastOn = false;
@@ -780,7 +882,9 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         } else if (english.isChecked()) {
-            if ((!on1()) && (!on2()) && (!on3()) && (!on4()) && (!on5()) && (on6())) {
+            if((!on1()) && (!on2()) && (!on3()) && (!on4()) && (!on5()) && (!on6())){
+                addText("");
+            } else if ((!on1()) && (!on2()) && (!on3()) && (!on4()) && (!on5()) && (on6())) {
                 cl = true;
             } else if (cl) {
                 if ((on1()) && (!on2()) && (!on3()) && (!on4()) && (!on5()) && (!on6())) {
@@ -898,7 +1002,9 @@ public class MainActivity extends AppCompatActivity {
             }
 
         } else if (number.isChecked()) {
-            if ((on1()) && (!on2()) && (!on3()) && (!on4()) && (!on5()) && (!on6())) {
+            if((!on1()) && (!on2()) && (!on3()) && (!on4()) && (!on5()) && (!on6())){
+                addText("");
+            } else if ((on1()) && (!on2()) && (!on3()) && (!on4()) && (!on5()) && (!on6())) {
                 addText("1");
             } else if ((on1()) && (!on2()) && (on3()) && (!on4()) && (!on5()) && (!on6())) {
                 addText("2");
@@ -934,8 +1040,25 @@ public class MainActivity extends AppCompatActivity {
     public void delete(View v){
 
         deleteText();
-
+        num=0xac00;
+        fortis = false;
+        firstOn = false;
+        lastOn = false;
+        q = r = s = f = false;
+        cl=false;
     }
+
+    public void space(View v)
+    {
+        addText(" ");
+        num=0xac00;
+        fortis = false;
+        firstOn = false;
+        lastOn = false;
+        q = r = s = f = false;
+        cl=false;
+    }
+
 
     public void deleteText(){
 
@@ -957,33 +1080,69 @@ public class MainActivity extends AppCompatActivity {
 
         ToggleButton tb;
 
+        tb = (ToggleButton)findViewById(R.id.Korean);
+        tb.setTextColor(Color.WHITE);
+
         tb = (ToggleButton)findViewById(R.id.English);
         tb.setChecked(false);
+        tb.setTextColor(Color.BLACK);
 
         tb = (ToggleButton)findViewById(R.id.Number);
         tb.setChecked(false);
+        tb.setTextColor(Color.BLACK);
+
+        num=0xac00;
+        fortis = false;
+        firstOn = false;
+        lastOn = false;
+        q = r = s = f = false;
+        cl=false;
     }
 
     public void english(View v){
 
         ToggleButton tb;
 
+        tb = (ToggleButton)findViewById(R.id.English);
+        tb.setTextColor(Color.WHITE);
+
         tb = (ToggleButton)findViewById(R.id.Korean);
         tb.setChecked(false);
+        tb.setTextColor(Color.BLACK);
 
         tb = (ToggleButton)findViewById(R.id.Number);
         tb.setChecked(false);
+        tb.setTextColor(Color.BLACK);
+
+        num=0xac00;
+        fortis = false;
+        firstOn = false;
+        lastOn = false;
+        q = r = s = f = false;
+        cl=false;
     }
 
     public void number(View v){
 
         ToggleButton tb;
 
+        tb = (ToggleButton)findViewById(R.id.Number);
+        tb.setTextColor(Color.WHITE);
+
         tb = (ToggleButton)findViewById(R.id.Korean);
         tb.setChecked(false);
+        tb.setTextColor(Color.BLACK);
 
         tb = (ToggleButton)findViewById(R.id.English);
         tb.setChecked(false);
+        tb.setTextColor(Color.BLACK);
+
+        num=0xac00;
+        fortis = false;
+        firstOn = false;
+        lastOn = false;
+        q = r = s = f = false;
+        cl=false;
     }
 
     public void addText(String c){
@@ -994,16 +1153,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public static String decode(String unicode) {
-
-        StringBuffer str = new StringBuffer();
-        char ch = 0;
-        for( int i= unicode.indexOf("\\u"); i > -1; i = unicode.indexOf("\\u") ){
-            ch = (char)Integer.parseInt( unicode.substring( i + 2, i + 6 ) ,16);
-            str.append( unicode.substring(0, i) );
-            str.append( String.valueOf(ch) );
-            unicode = unicode.substring(i + 6);
-        }
-        str.append( unicode );
-        return str.toString();
+        char ch;
+        String str;
+        ch = (char)Integer.parseInt( unicode.substring(2, 6), 16);
+        str = ch + "";
+        return str;
     }
 }

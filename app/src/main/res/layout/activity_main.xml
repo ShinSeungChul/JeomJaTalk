@@ -10,31 +10,17 @@
 
         <TextView
             android:id="@+id/TextView"
-            android:layout_width="182dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textSize="20dp" />
 
-
-        <Button
-            android:id="@+id/Delete"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:onClick="delete"
-            android:text="Delete" />
-
-
-        <Button
-            android:id="@+id/Enter"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:onClick="enter"
-            android:text="Enter" />
+        />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="100dp"
         android:orientation="horizontal">
 
 
@@ -45,8 +31,9 @@
             android:layout_weight="1"
             android:background="@drawable/clicked_button"
             android:onClick="buttonClicked1"
-            android:textOn=""
-            android:textOff=""/>
+            android:soundEffectsEnabled="false"
+            android:textOff=""
+            android:textOn="" />
 
         <ToggleButton
             android:id="@+id/button2"
@@ -55,14 +42,15 @@
             android:layout_weight="1"
             android:background="@drawable/clicked_button"
             android:onClick="buttonClicked2"
-            android:textOn=""
-            android:textOff="" />
+            android:soundEffectsEnabled="false"
+            android:textOff=""
+            android:textOn="" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="100dp"
         android:orientation="horizontal">
 
 
@@ -73,8 +61,9 @@
             android:layout_weight="1"
             android:background="@drawable/clicked_button"
             android:onClick="buttonClicked3"
-            android:textOn=""
-            android:textOff=""/>
+            android:soundEffectsEnabled="false"
+            android:textOff=""
+            android:textOn="" />
 
         <ToggleButton
             android:id="@+id/button4"
@@ -83,14 +72,15 @@
             android:layout_weight="1"
             android:background="@drawable/clicked_button"
             android:onClick="buttonClicked4"
-            android:textOn=""
-            android:textOff=""/>
+            android:soundEffectsEnabled="false"
+            android:textOff=""
+            android:textOn="" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="100dp"
         android:orientation="horizontal">
 
 
@@ -101,8 +91,9 @@
             android:layout_weight="1"
             android:background="@drawable/clicked_button"
             android:onClick="buttonClicked5"
-            android:textOn=""
-            android:textOff=""/>
+            android:soundEffectsEnabled="false"
+            android:textOff=""
+            android:textOn="" />
 
         <ToggleButton
             android:id="@+id/button6"
@@ -111,10 +102,44 @@
             android:layout_weight="1"
             android:background="@drawable/clicked_button"
             android:onClick="buttonClicked6"
-            android:textOn=""
-            android:textOff=""/>
+            android:soundEffectsEnabled="false"
+            android:textOff=""
+            android:textOn="" />
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/space"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/space"
+            android:onClick="space"
+            android:soundEffectsEnabled="false"
+            android:text="space\n"
+            android:textSize="21dp" />
+
+        <Button
+            android:id="@+id/Delete"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/delete"
+            android:onClick="delete"
+            android:textSize="20dp"
+            android:soundEffectsEnabled="false"
+            android:text="delete\n" />
+
+
+
+    </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -126,30 +151,40 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@drawable/click_button"
+            android:checked="true"
             android:onClick="korean"
-            android:textOn="한글"
+            android:soundEffectsEnabled="false"
+            android:textColor="#FFFFFFFF"
             android:textOff="한글"
-            android:checked="true"/>
+            android:textOn="한글"
+            android:textSize="30dp" />
 
         <ToggleButton
             android:id="@+id/English"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@drawable/click_button"
+            android:checked="false"
             android:onClick="english"
-            android:textOn="영어"
+            android:soundEffectsEnabled="false"
             android:textOff="영어"
-            android:checked="false"/>
+            android:textOn="영어"
+            android:textSize="30dp" />
 
         <ToggleButton
             android:id="@+id/Number"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@drawable/click_button"
+            android:checked="false"
             android:onClick="number"
-            android:textOn="숫자"
+            android:soundEffectsEnabled="false"
             android:textOff="숫자"
-            android:checked="false"/>
+            android:textOn="숫자"
+            android:textSize="30dp" />
 
     </LinearLayout>
 </LinearLayout>
