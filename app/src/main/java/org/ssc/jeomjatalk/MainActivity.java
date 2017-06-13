@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         public void handleMessage(Message msg){
             value++;
             handler.sendEmptyMessageDelayed(0,1);
-            if(value==500){
+            if(value==300){
                 enter();
                 value=0;
                 handler.removeMessages(0);
