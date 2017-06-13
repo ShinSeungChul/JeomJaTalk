@@ -39,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
     int value=0;
     SoundPool sound;
     int soundId;
+    int enterSound;
+    int deleteSound;
+    int changeSound;
     int soundNum;
 
     @Override
@@ -49,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
 
         sound = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
         soundId = sound.load(this, R.raw.click, 1);
+        enterSound = sound.load(this, R.raw.enter_click, 1);
+        deleteSound = sound.load(this, R.raw.delete_click, 1);
+        changeSound = sound.load(this, R.raw.change_click, 1);
     }
 
     Handler handler = new Handler(){
@@ -83,6 +89,15 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case 6:
                     sound.play(soundId, 1, 1, 0, 0, 4.5F);
+                    break;
+                case 7:
+                    sound.play(enterSound, 1, 1, 0, 0, 2.0F);
+                    break;
+                case 8:
+                    sound.play(deleteSound, 1, 1, 0, 0, 2.0F);
+                    break;
+                case 9:
+                    sound.play(changeSound, 1, 1, 0, 0, 2.0F);
                     break;
             }
         }
@@ -1032,6 +1047,8 @@ public class MainActivity extends AppCompatActivity {
     public void delete(View v){
 
         deleteText();
+        soundNum = 8;
+        soundHandler.sendEmptyMessage(0);
         num=0xac00;
         fortis = false;
         firstOn = false;
@@ -1043,6 +1060,8 @@ public class MainActivity extends AppCompatActivity {
     public void space(View v)
     {
         addText(" ");
+        soundNum = 7;
+        soundHandler.sendEmptyMessage(0);
         num=0xac00;
         fortis = false;
         firstOn = false;
@@ -1072,6 +1091,9 @@ public class MainActivity extends AppCompatActivity {
 
         ToggleButton tb;
 
+        soundNum = 9;
+        soundHandler.sendEmptyMessage(0);
+
         tb = (ToggleButton)findViewById(R.id.Korean);
         tb.setTextColor(Color.WHITE);
 
@@ -1095,6 +1117,9 @@ public class MainActivity extends AppCompatActivity {
 
         ToggleButton tb;
 
+        soundNum = 9;
+        soundHandler.sendEmptyMessage(0);
+
         tb = (ToggleButton)findViewById(R.id.English);
         tb.setTextColor(Color.WHITE);
 
@@ -1117,6 +1142,9 @@ public class MainActivity extends AppCompatActivity {
     public void number(View v){
 
         ToggleButton tb;
+
+        soundNum = 9;
+        soundHandler.sendEmptyMessage(0);
 
         tb = (ToggleButton)findViewById(R.id.Number);
         tb.setTextColor(Color.WHITE);
