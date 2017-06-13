@@ -37,14 +37,18 @@ public class MainActivity extends AppCompatActivity {
     boolean f = false;
     boolean q = false;
     int value=0;
-    TextView tv;
+    SoundPool sound;
+    int soundId;
+    int soundNum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        tv = (TextView)findViewById(R.id.TextView);
+
+        sound = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
+        soundId = sound.load(this, R.raw.click, 1);
     }
 
     Handler handler = new Handler(){
@@ -59,20 +63,38 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    Handler soundHandler = new Handler(){
+        public void handleMessage(Message msg){
+            switch(soundNum) {
+                case 1:
+                    sound.play(soundId, 1, 1, 0, 0, 2.0F);
+                    break;
+                case 2:
+                    sound.play(soundId, 1, 1, 0, 0, 2.5F);
+                    break;
+                case 3:
+                    sound.play(soundId, 1, 1, 0, 0, 3.0F);
+                    break;
+                case 4:
+                    sound.play(soundId, 1, 1, 0, 0, 3.5F);
+                    break;
+                case 5:
+                    sound.play(soundId, 1, 1, 0, 0, 4.0F);
+                    break;
+                case 6:
+                    sound.play(soundId, 1, 1, 0, 0, 4.5F);
+                    break;
+            }
+        }
+    };
 
     public void buttonClicked1(View v){
         if(value != 0)
             value=0;
         else
             handler.sendEmptyMessage(0);
-        SoundPool sound = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
-        final int soundId = sound.load(this, R.raw.click1, 1);
-        sound.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
-            @Override
-            public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
-                soundPool.play(soundId, 1.0F, 1.0F, 1, 0, 2);
-            }
-        });
+        soundNum=1;
+        soundHandler.sendEmptyMessage(0);
     }
 
     public void buttonClicked2(View v){
@@ -80,14 +102,8 @@ public class MainActivity extends AppCompatActivity {
             value=0;
         else
             handler.sendEmptyMessage(0);
-        SoundPool sound = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
-        final int soundId = sound.load(this, R.raw.click2, 1);
-        sound.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
-            @Override
-            public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
-                soundPool.play(soundId, 1.0F, 1.0F, 1, 0, 2);
-            }
-        });
+        soundNum=2;
+        soundHandler.sendEmptyMessage(0);
     }
 
     public void buttonClicked3(View v){
@@ -95,14 +111,8 @@ public class MainActivity extends AppCompatActivity {
             value=0;
         else
             handler.sendEmptyMessage(0);
-        SoundPool sound = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
-        final int soundId = sound.load(this, R.raw.click3, 1);
-        sound.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
-            @Override
-            public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
-                soundPool.play(soundId, 1.0F, 1.0F, 1, 0, 2);
-            }
-        });
+        soundNum=3;
+        soundHandler.sendEmptyMessage(0);
     }
 
     public void buttonClicked4(View v){
@@ -110,14 +120,8 @@ public class MainActivity extends AppCompatActivity {
             value=0;
         else
             handler.sendEmptyMessage(0);
-        SoundPool sound = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
-        final int soundId = sound.load(this, R.raw.click4, 1);
-        sound.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
-            @Override
-            public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
-                soundPool.play(soundId, 1.0F, 1.0F, 1, 0, 2);
-            }
-        });
+        soundNum=4;
+        soundHandler.sendEmptyMessage(0);
     }
 
     public void buttonClicked5(View v){
@@ -125,14 +129,8 @@ public class MainActivity extends AppCompatActivity {
             value=0;
         else
             handler.sendEmptyMessage(0);
-        SoundPool sound = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
-        final int soundId = sound.load(this, R.raw.click5, 1);
-        sound.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
-            @Override
-            public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
-                soundPool.play(soundId, 1.0F, 1.0F, 1, 0, 2);
-            }
-        });
+        soundNum=5;
+        soundHandler.sendEmptyMessage(0);
     }
 
     public void buttonClicked6(View v){
@@ -140,14 +138,8 @@ public class MainActivity extends AppCompatActivity {
             value=0;
         else
             handler.sendEmptyMessage(0);
-        SoundPool sound = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
-        final int soundId = sound.load(this, R.raw.click6, 1);
-        sound.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
-            @Override
-            public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
-                soundPool.play(soundId, 1.0F, 1.0F, 1, 0, 2);
-            }
-        });
+        soundNum=6;
+        soundHandler.sendEmptyMessage(0);
     }
 
 

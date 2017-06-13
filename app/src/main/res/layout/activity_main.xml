@@ -121,7 +121,6 @@
             android:layout_weight="1"
             android:background="@drawable/space"
             android:onClick="space"
-            android:soundEffectsEnabled="false"
             android:text="space\n"
             android:textSize="20dp" />
 
@@ -133,7 +132,6 @@
             android:background="@drawable/delete"
             android:onClick="delete"
             android:textSize="20dp"
-            android:soundEffectsEnabled="false"
             android:text="delete\n" />
 
 
@@ -154,7 +152,6 @@
             android:background="@drawable/clicked_button"
             android:checked="true"
             android:onClick="korean"
-            android:soundEffectsEnabled="false"
             android:textColor="#FFFFFFFF"
             android:textOff="한글"
             android:textOn="한글"
@@ -168,7 +165,6 @@
             android:background="@drawable/clicked_button"
             android:checked="false"
             android:onClick="english"
-            android:soundEffectsEnabled="false"
             android:textOff="영어"
             android:textOn="영어"
             android:textSize="30dp" />
@@ -181,7 +177,6 @@
             android:background="@drawable/clicked_button"
             android:checked="false"
             android:onClick="number"
-            android:soundEffectsEnabled="false"
             android:textOff="숫자"
             android:textOn="숫자"
             android:textSize="30dp" />
