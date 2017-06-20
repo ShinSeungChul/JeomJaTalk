@@ -1095,6 +1095,7 @@ public class MainActivity extends AppCompatActivity {
         soundHandler.sendEmptyMessage(0);
 
         tb = (ToggleButton)findViewById(R.id.Korean);
+        tb.setChecked(true);
         tb.setTextColor(Color.WHITE);
 
         tb = (ToggleButton)findViewById(R.id.English);
@@ -1121,6 +1122,7 @@ public class MainActivity extends AppCompatActivity {
         soundHandler.sendEmptyMessage(0);
 
         tb = (ToggleButton)findViewById(R.id.English);
+        tb.setChecked(true);
         tb.setTextColor(Color.WHITE);
 
         tb = (ToggleButton)findViewById(R.id.Korean);
@@ -1147,6 +1149,7 @@ public class MainActivity extends AppCompatActivity {
         soundHandler.sendEmptyMessage(0);
 
         tb = (ToggleButton)findViewById(R.id.Number);
+        tb.setChecked(true);
         tb.setTextColor(Color.WHITE);
 
         tb = (ToggleButton)findViewById(R.id.Korean);
